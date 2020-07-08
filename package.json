@@ -9,7 +9,8 @@
     "dev:build-client": "webpack --config webpack.client.js --mode=development --watch",
     "dev:build-server": "webpack --config webpack.server.js --mode=development --watch",
     "test": "jest",
-    "start": "npm-run-all --parallel dev:*"
+    "start": "node build/bundle.js",
+    "heroku-postbuild": "npm i && npm i --only=dev --no-shrinkwrap"
   },
   "repository": {
     "type": "git",
