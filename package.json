@@ -4,7 +4,8 @@
   "description": "React SSR project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev:build:server": "webpack --config webpack.server.js --mode=development",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,42 @@
   "bugs": {
     "url": "https://github.com/sahil242927-github/react-ssr/issues"
   },
-  "homepage": "https://github.com/sahil242927-github/react-ssr#readme"
+  "homepage": "https://github.com/sahil242927-github/react-ssr#readme",
+  "dependencies": {
+    "@babel/cli": "^7.10.4",
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
+    "axios": "^0.19.2",
+    "babel-jest": "^26.1.0",
+    "babel-loader": "^8.1.0",
+    "compression": "^1.7.4",
+    "concurrently": "^5.2.0",
+    "express": "^4.17.1",
+    "node-sass": "^4.14.1",
+    "nodemon": "^2.0.4",
+    "npm-run-all": "^4.1.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-helmet": "^6.1.0",
+    "react-redux": "^7.2.0",
+    "react-router-config": "^5.1.1",
+    "react-router-dom": "^5.2.0",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
+    "serialize-javascript": "^4.0.0",
+    "style-loader": "^1.2.1",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.0.8",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "devDependencies": {
+    "css-loader": "^3.6.0",
+    "jest": "^26.1.0",
+    "react-test-renderer": "^16.13.1",
+    "sass": "^1.26.10",
+    "sass-loader": "^9.0.2",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
+  }
 }

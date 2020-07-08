@@ -1,6 +1,6 @@
 # React JS SSR Project
 
-### Project Detials
+### Project Details
 
 There are 2 folders inside this project,
 <span style="color:dodgerblue; font-weight:bold">client</span> and
