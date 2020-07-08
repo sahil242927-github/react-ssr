@@ -1,7 +1,11 @@
 const path = require('path');
+const { merge } = require('webpack-merge');
+const WebpackMessages = require('webpack-messages');
 const webpackNodeExternals = require('webpack-node-externals');
 
-module.exports = {
+const baseConfig = require('./webpack.base');
+
+const config = {
   // inform webpack that we are building a bundle for a nodeJS rather than for the browser
   target: 'node',
 
@@ -13,34 +17,12 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'build'),
   },
-
-  // Tell webpack to run babel on every file it runs through
-  module: {
-    rules: [
-      {
-        test: /\.(js|jsx)?$/,
-        loader: 'babel-loader', // webpack loader module
-        exclude: /node_modules/,
-        options: {
-          presets: ['@babel/preset-env', '@babel/preset-react'],
-        },
-      },
-      {
-        test: /\.s[ac]ss$/i,
-        use: [
-          // Creates `style` nodes from JS strings
-          'style-loader',
-          // Translates CSS into CommonJS
-          'css-loader',
-          // Compiles Sass to CSS
-          'sass-loader',
-        ],
-      },
-    ],
-  },
-  resolve: {
-    extensions: ['.js', '.jsx'], // Looks for index.js first, then falls back to index.jsx
-  },
+  plugins: [
+    new WebpackMessages({
+      name: 'Server',
+      logger: (str) => console.log(`\n>> ${str}...\n`),
+    }),
+  ],
 
   /* --------------------------------- */
   // this rule tells webpack to not to bundle any library in the
@@ -54,3 +36,5 @@ module.exports = {
   externals: [webpackNodeExternals()],
   /* --------------------------------- */
 };
+
+module.exports = merge(baseConfig, config);
