@@ -10,7 +10,7 @@
     "dev:build-server": "webpack --config webpack.server.js --mode=development --watch",
     "test": "jest",
     "start": "node build/bundle.js",
-    "heroku-postbuild": "npm i && npm i --only=dev --no-shrinkwrap && npm run dev:build-client"
+    "heroku-postbuild": "npm i && npm i --only=dev --no-shrinkwrap"
   },
   "repository": {
     "type": "git",
