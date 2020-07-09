@@ -18,7 +18,7 @@ It includes SSR code
 \
 <span style="color:#ff9900; font-weight:bold">How **to run the app**</span>
 
-1. Go to the app root folder and run the command :
+1. Go to the app root folder and run the command to install the node modules:
 
 ```node
 > npm install
@@ -27,12 +27,10 @@ It includes SSR code
 \
 \
 
-2. Go to the app root folder and run the command :
-   The command will run the server
+2. Go to the app root folder and run the command it will run the server
 
 ```node
 > npm run start
-
 You project is hosted on :
 http://localhost:5000
 ```
