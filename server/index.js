@@ -7,6 +7,7 @@ import createStore from './helper/createStore';
 import Routes from '../client/src/Routes';
 
 const app = express();
+const PORT = process.env.PORT || 5000;
 
 app.use(express.static('public'));
 
@@ -31,5 +32,5 @@ app.get('*', (req, res, next) => {
 });
 
 app.listen(5000, () => {
-  console.log('\nListening on port 5000');
+  console.log('\nListening on port ', PORT);
 });
