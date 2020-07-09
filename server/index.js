@@ -31,6 +31,6 @@ app.get('*', (req, res, next) => {
   }
 });
 
-app.listen(5000, () => {
-  console.log('\nListening on port ', PORT);
+app.listen(PORT, () => {
+  console.log('\nListening on port : ', PORT);
 });
