@@ -9,7 +9,7 @@
     "dev:build-client": "webpack --config webpack.client.js --mode=development --watch",
     "dev:build-server": "webpack --config webpack.server.js --mode=development --watch",
     "test": "jest",
-    "start": "node build/bundle.js"
+    "start": "NODE_ENV=production node build/bundle.js"
   },
   "repository": {
     "type": "git",
