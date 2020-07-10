@@ -1,3 +1,6 @@
+const TerserPlugin = require('terser-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 module.exports = {
   module: {
     rules: [
@@ -10,19 +13,27 @@ module.exports = {
         },
       },
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.css$/i,
         use: [
-          // Creates `style` nodes from JS strings
-          'style-loader',
+          MiniCssExtractPlugin.loader,
           // Translates CSS into CommonJS
           'css-loader',
-          // Compiles Sass to CSS
-          'sass-loader',
         ],
+      },
+      {
+        test: /\.scss$/i,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
     ],
   },
   resolve: {
     extensions: ['.js', '.jsx'], // Looks for index.js first, then falls back to index.jsx
   },
+  // To minify you javaScript bundle
+  plugins: [
+    new TerserPlugin(),
+    new MiniCssExtractPlugin({
+      filename: './styles.css',
+    }),
+  ],
 };
