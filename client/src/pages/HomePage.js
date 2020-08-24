@@ -94,7 +94,6 @@ const loadData = (store) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state.news);
   return { news: state.news.hits, currentPage: state.news.currentPage };
 };
 
