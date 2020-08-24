@@ -1,6 +1,8 @@
 const path = require('path');
 const { merge } = require('webpack-merge');
 const WebpackMessages = require('webpack-messages');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
 const baseConfig = require('./webpack.base');
 
 const config = {
@@ -20,4 +22,4 @@ const config = {
   ],
 };
 
-module.exports = merge(baseConfig, config);
+module.exports = merge([baseConfig, config]);

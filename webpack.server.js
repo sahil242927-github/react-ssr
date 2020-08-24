@@ -37,4 +37,4 @@ const config = {
   /* --------------------------------- */
 };
 
-module.exports = merge(baseConfig, config);
+module.exports = merge([baseConfig, config]);

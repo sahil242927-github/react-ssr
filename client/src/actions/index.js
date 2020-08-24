@@ -17,12 +17,12 @@ export const fetchUsers = () => async (dispatch) => {
 export const fetchNews = (page) => async (dispatch) => {
   try {
     const res = await axios.get(
-      `https://hn.algolia.com/api/v1/search_by_date?tags=story&hitsPerPage=10`
+      `https://hn.algolia.com/api/v1/search?tags=front_page&hitsPerPage=10`
     );
 
     dispatch({
       type: FETCH_NEWS,
-      payload: { res, currentPage: page || 0 },
+      payload: { res, currentPage: page || 1 },
     });
   } catch (error) {
     console.log(error);
@@ -32,14 +32,14 @@ export const fetchNews = (page) => async (dispatch) => {
 export const prevAction = (page) => async (dispatch) => {
   try {
     const res = await axios.get(
-      `https://hn.algolia.com/api/v1/search_by_date?tags=story&page=${page}&hitsPerPage=10`
+      `https://hn.algolia.com/api/v1/search?tags=front_page&page=${page}&hitsPerPage=10`
     );
 
     dispatch({
       type: PREV_PAGE,
       payload: {
         res,
-        currentPage: page || 0,
+        currentPage: page || 1,
       },
     });
   } catch (error) {
@@ -49,14 +49,14 @@ export const prevAction = (page) => async (dispatch) => {
 export const nextAction = (page) => async (dispatch) => {
   try {
     const res = await axios.get(
-      `https://hn.algolia.com/api/v1/search_by_date?tags=story&page=${page}&hitsPerPage=10`
+      `https://hn.algolia.com/api/v1/search?tags=front_page&page=${page}&hitsPerPage=10`
     );
 
     dispatch({
       type: NEXT_PAGE,
       payload: {
         res,
-        currentPage: page || 0,
+        currentPage: page || 1,
       },
     });
   } catch (error) {
